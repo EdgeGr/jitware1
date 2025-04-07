@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business Revolution</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    html {
+      scroll-padding-top: 200px; 
+    }
+    body, html {
+      overflow-x: hidden;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-repeat: repeat;
+      background-size: 400px;
+    }
+
+    .hero {
+      background-color: #0d0d0d;
+      color: white;
+      text-align: left;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-bottom: 5px solid #c9a227;
+      animation: fadeIn 1.5s ease-in-out;
+      background-image: url('https://www.shaip.com/wp-content/uploads/2024/04/Blog_Navigating-Human-AI-Collaboration-in-Model-Evaluation.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      will-change: background-position;
+    }
+
+    .hero h1, .hero .lead {
+      color: #c9a227;
+      text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+    }
+    
+    .hero img {
+      max-width: 600px;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 3rem;
+      color: #c9a227;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 10px rgba(201, 162, 39, 0.7), 0 0 30px rgba(201, 162, 39, 0.4);
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 2px 2px 10px rgba(201, 162, 39, 0.7), 0 0 30px rgba(201, 162, 39, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(201, 162, 39, 0.9), 0 0 40px rgba(201, 162, 39, 0.8);
+      }
+    }
+
+    .gold-text {
+      color: #c9a227;
+      text-shadow: 1px 1px 10px rgba(201, 162, 39, 0.7);
+    }
+
+    .btn-gold {
+      background: linear-gradient(145deg, #c9a227, #99731f);
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 50px;
+      transition: all 0.4s ease-in-out;
+      box-shadow: 0px 6px 12px rgba(201, 162, 39, 0.5);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(201, 162, 39, 0.9);
+    }
+
+    .content-section {
+      padding: 100px 0;
+      background: #0d0d0d;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(201, 162, 39, 0.5);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      height: 100%;
+      box-shadow: 0 0 25px rgba(201, 162, 39, 0.2);
+      padding: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card .rounded-circle {
+      border: 2px solid #c9a227;
+      box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+    }
+
+    .card small {
+      font-size: 0.9rem;
+    }
+
+    .card p {
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 35px rgba(201, 162, 39, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .card-img-left {
+      border-radius: 10px;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      filter: sepia(100%) saturate(300%) hue-rotate(-30deg);
+    }
+
+    .card-img-left:hover {
+      filter: sepia(100%) saturate(300%) hue-rotate(-30deg) brightness(1.1);
+    }
+
+    .card-body {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px rgba(201, 162, 39, 0.1);
+      transition: background-color 0.3s ease-in-out;
+      flex: 1;
+    }
+
+    .card-body:hover {
+      background-color: rgba(201, 162, 39, 0.08);
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 30px;
+      color: #c9a227;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-top: 3px solid #c9a227;
+    }
+
+    form input,
+    form button {
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(201, 162, 39, 0.2);
+    }
+
+    form input:focus {
+      border-color: #c9a227;
+      box-shadow: 0 0 12px rgba(201, 162, 39, 0.4);
+    }
+
+    .pulse-btn {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(201, 162, 39, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+    }
+    
+    #salesChart {
+      max-width: 90%;
+      height: 250px !important; 
+      margin: auto;
+    } 
+
+    .navbar .nav-link {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .navbar .nav-link:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-black py-2 px-4 border-bottom border-warning" style="position: sticky; top: 0; z-index: 1000;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="container text-center py-5">
+          <span class="logo">Jitware</span>
+        </div>
+        <span class="gold-text fs-5 fw-semibold">AI Boost Agency</span>
+      </a>
+      <div class="d-none d-md-flex gap-4">
+        <a class="nav-link text-white" href="#download">Download</a>
+        <a class="nav-link text-white" href="#wat-je-zal-leren">Wat je zal leren</a>
+        <a class="nav-link text-white" href="#impact">Onze impact</a>
+        <a class="nav-link text-white" href="#reviews">Wat anderen zeggen</a>
+      </div>
+    </div>
+  </nav>
+  <section class="content-section" data-aos="fade-up">
+  <header class="hero">
+    <div class="text-content">
+      <h1 class="section-title gold-text">Ontgrendel de kracht van AI voor je bedrijf</h1>
+      <p class="lead" style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula dolor et velit ultricies gravida.</p>
+      <a href="#" class="btn-gold">Start nu</a>
+    </div>
+  </header>
+  <img src="https://designshack.net/wp-content/uploads/bold-minimal-ebook-template-269-1.jpg" class="img-fluid mt-4" alt="Ebook preview" style="width: 50%; height: auto;">
+
+  <section class="content-section">
+    <h2 class="gold-text">Waarom AI?</h2>
+    <p>Transformeer je workflow en maximaliseer je productiviteit met slimme AI-oplossingen.</p>
+  </section>
+
+  <section class="container text-center py-5">
+    <h2 class="gold-text" id="wat-je-zal-leren">Wat je zal leren</h2>
+    <div class="row mt-4 g-4">
+      <!-- Card 1: Slimmere workflows -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/4305/4305620.png" class="card-img-left" alt="Slimmere workflows">
+          <div class="card-body">
+            <h5 class="card-title gold-text">Slimmere workflows</h5>
+            <p class="card-text">Automatiseer repetitieve taken en win kostbare tijd.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: AI voor content -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/427/427735.png" class="card-img-left" alt="AI voor content">
+          <div class="card-body">
+            <h5 class="card-title gold-text">AI voor content</h5>
+            <p class="card-text">Genereer waardevolle inhoud zonder afhankelijkheid van derden.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Groei je omzet -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" class="card-img-left" alt="Groei je omzet">
+          <div class="card-body">
+            <h5 class="card-title gold-text">Groei je omzet</h5>
+            <p class="card-text">Optimaliseer je verkoopproces en genereer meer leads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="impact">
+    <h2 class="gold-text">Onze impact tot nu toe</h2>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <h3 class="gold-text">💸 €25.000+</h3>
+        <p>Aan totale omzet gegenereerd</p>
+      </div>
+      <div class="col-md-4">
+        <h3 class="gold-text">👥 2.500+</h3>
+        <p>Downloads wereldwijd</p>
+      </div>
+      <div class="col-md-4">
+        <h3 class="gold-text">⭐ 95%</h3>
+        <p>Tevredenheid van gebruikers</p>
+      </div>
+    </div>
+    <canvas id="salesChart" height="100"></canvas>
+  </section>
+
+  <section class="content-section" data-aos="fade-up">
+    <h2 class="gold-text mb-5" id="reviews">Wat anderen zeggen</h2>
+    <div class="container">
+      <div class="row justify-content-center g-4">
+        <div class="col-md-4">
+          <div class="card h-100 text-start p-3 d-flex flex-column">
+            <div class="d-flex align-items-start mb-3">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3" width="60" alt="user">
+              <div>
+                <strong class="text-white">Lisa van Dijk</strong><br>
+                <small class="gold-text">Marketing consultant</small>
+              </div>
+            </div>
+            <p style="font-size: 1.05rem;" class="mt-2">
+              “Deze gids veranderde mijn hele strategie. Echt goud waard. Dankzij de praktische voorbeelden en duidelijke uitleg kon ik meteen aan de slag. Binnen een week had ik al 3 nieuwe klanten via AI gegenereerde content.”
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-start p-3 d-flex flex-column">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="user">
+              <div>
+                <strong class="text-white">Mark Jansen</strong><br>
+                <small class="gold-text">Startup founder</small>
+              </div>
+            </div>
+            <p style="font-size: 1.05rem;" class="mt-2">
+              “Ik heb dankzij AI meer leads dan ooit tevoren. Wat mij vooral aansprak was hoe simpel het werd uitgelegd. Dit is niet zomaar theorie, dit is direct toepasbaar en effectief. Mijn omzet is sinds de implementatie verdubbeld.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5" id="download">
+    <h2 class="gold-text text-center">Download jouw exemplaar</h2>
+    <form class="mt-4 mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Je naam" required>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Je e-mailadres" required>
+      </div>
+      <button type="submit" class="btn btn-gold w-100">Verzenden</button>
+    </form>
+  </section>
+
+  <footer>
+    <p class="mb-0">© 2025 AI Boost Agency. Alle rechten voorbehouden.</p>
+    <!-- Social Media Links -->
+    <div class="mt-4">
+        <a href="https://discord.com" class="text-decoration-none mx-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Discord_logo_2023.svg" alt="Discord" width="30" class="social-icon">
+        </a>
+        <a href="https://www.linkedin.com" class="text-decoration-none mx-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2023.svg" alt="LinkedIn" width="30" class="social-icon">
+        </a>
+        <a href="https://twitter.com" class="text-decoration-none mx-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter" width="30" class="social-icon">
+        </a>
+        <!-- Add more social media links if needed -->
+    </div>  </footer>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun'],
+        datasets: [{
+          label: 'Maandelijkse Verkoop (€)',
+          data: [1500, 3000, 4500, 6000, 8000, 10000],
+          borderColor: '#c9a227',
+          backgroundColor: 'rgba(201, 162, 39, 0.1)',
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#c9a227'
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: '#fff',
+              font: {
+                family: 'Poppins'
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#fff'
+            },
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
+            }
+          },
+          y: {
+            ticks: {
+              color: '#fff'
+            },
+            grid: {
+              color: 'rgba(255,255,255,0.1)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+ <script>
+  let ticking = false;
+
+  function updateParallax() {
+    const hero = document.querySelector('.hero');
+    let offset = window.scrollY;
+    hero.style.backgroundPositionY = `${offset * 0.5}px`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  });
+
+  // Ensure image is loaded before parallax kicks in
+  window.addEventListener('load', () => {
+    const hero = document.querySelector('.hero');
+    hero.style.backgroundPositionY = '0px'; // reset initial
+  });
+</script>
+  <a href="#download" class="btn btn-gold position-fixed d-none d-md-block pulse-btn"
+   style="bottom: 30px; right: 30px; z-index: 999;">
+  📥 Download e-book
+</a>
+</body>
+</html>
